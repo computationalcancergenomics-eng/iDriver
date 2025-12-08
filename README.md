@@ -42,6 +42,8 @@ This is a table in which each row represents a single somatic variant. This file
 - var_ID — User-assigned unique mutation identifier
 - elemenntLength — Length (bp) of the element containing the mutation
 
+Put this mutation data file in the following destination:
+"../extdata/procInput/iDriverInputs/mutData.tsv"
 
 #### b.  Donor information table
 This file provides the essential information for each patient.
@@ -51,6 +53,9 @@ Required Columns:
 - cohort1 — Cancer project identifier (e.g., ColoRect-AdenoCA) 
 - freq — Total number of mutations for the patient
 - HyperMut_donor — Is the patient a hypermutated patient or not (TRUE/FALSE)
+
+Put this donor information file in the following destination:
+"../extdata/procInput/iDriverInputs/donorInfo.tsv"
 
 #### c.  Mutations probabilities
 This file provides the predicted number of mutations for each element and the corresponding probability of observing mutation in that element in one patient for a cancer cohort.
