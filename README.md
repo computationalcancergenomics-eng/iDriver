@@ -26,11 +26,30 @@ iDriver requires five data files as input:
 - Functional impact (FI) scores for all variants in a cancer cohort
 - The mean and standard deviation of FI scores for each element type in a cancer cohort
 
+  First of all, please provide unique mutation identifiers to each mutation.
+
 #### a. Somatic mutations
+This is a table in which each row represents a single somatic variant. This file provides the essential genomic and contextual information used for driver discovery, and should have the following columns:
+
+- donor_id — Unique patient identifier, showing the identifier of the patients in which the mutation is occoured
+- PCAWG_ID — Full genomic element identifier
+- Ref — Reference allele
+- Alt — Alternative allele
+- triCntx — Trinucleotide context of the mutation (e.g., CAG > CGG)
+- var_type — Variant type (e.g., SNP, INDEL)
+- GenomicElement — Genomic element category (e.g., gc19_pc.cds, gc19_pc.promCore, enhancers)
+- position — Genomic coordinate (1-based)
+- var_ID — User-assigned unique mutation identifier
+- elemenntLength — Length (bp) of the element containing the mutation
 
 
 #### b.  Donor information table
+This file provides the essential information for each patient.
 
+- D_id — Unique patient identifier, showing the identifier of the patients (e.g., DO1000)
+- cohort1 — Cancer project identifier (e.g., ColoRect-AdenoCA) 
+- freq — Total number of mutations for the patient
+- HyperMut_donor — Is the patient a hypermutated patient or not (TRUE/FALSE)
 
 #### c.  Mutations probabilities
 
