@@ -69,15 +69,25 @@ Required Columns:
 ... to be completed with cmd scripts of save_pElems.R ...
 
 #### d. FI scores
+This is a table in which each row represents a single somatic variant with its functional impact score. User can provide any FI score system. We used CADD scores.
+Required Columns:
+- var_ID — User-assigned unique mutation identifier
+- score — Functional impact score for the mutation
 
 
 #### e. Mean-SD table
+This table provides the Mean and Standard deviation of FI scores across each element type (e.g., gc19_pc.cds, gc19_pc.promCore, enhancers) for a cancer cohort.
+Required Columns:
+- var_ID — User-assigned unique mutation identifier
+- Mu — The Mean of FI scores across
+- sd — The Standard deviation of FI scores across
 
+... to be completed with cmd scripts of save_Mu_sd.R ...
 
 ### 3. Run iDriver
 
 ```bash
-Rscript tidy/iDriver.R "observed" "../extdata/procInput/iDriverInputs/cadd_scores.tsv" "../extdata/procInput/BMRs_2024/observed/{cohort}/pElems/eMET_orig_pElmens.tsv" "../extdata/procInput/Mu_sd/elemType/observed/{cohort}_CADD6_elemTypeParams.tsv" "{cohort}" 70 "{cohort}" "../extdata/output_release2.0/observed/pooled/betaRhoPancan_lengthCat_quartilesElemType/" {flag} TRUE 4 "Original" "../extdata/output_release2.0/observed/pooled_withHyperMuts/betaRhoPancan_lengthCat_quartilesElemType/observed_Pan_Cancer.tsv"
+Rscript tidy/iDriver.R "observed" <PATH/to/FI scores.tsv> <PATH/to/Mutations probabilities.tsv> <PATH/to/Mean-SD table.tsv> <save_name> <Number of cores> <cohort> <PATH_save> <exclude_lymph_melanoma> <exclude_hyper_mutated> 4 "Original" <params>
 ```
 
 
